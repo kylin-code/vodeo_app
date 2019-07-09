@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 
-export default class home extends Component {
+export default class Activity extends Component {
     render() {
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text> home </Text>
+                <Text> Activity </Text>
             </View>
         );
     }
