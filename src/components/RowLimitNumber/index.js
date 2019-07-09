@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {View, ScrollView} from 'react-native';
 
-export default class RwoLimitNum extends PureComponent {
+export default class RowLimitNumber extends PureComponent {
     render() {
         const {data, rowNum, styleObj} = this.props;
         const allRow = Math.ceil(data.length / rowNum);

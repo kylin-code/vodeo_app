@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import BindComponentMethodThis from '../../components/BindComponentMethodThis';
-import RwoLimitNum from '../../components/rwoLimitNum';
+import RowLimitNumber from '../../components/RowLimitNumber';
 
 let list = [];
 [...Array(100)].forEach((item, i) => {
@@ -13,7 +13,7 @@ export default class home extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <RwoLimitNum data={list} rowNum={7} styleObj={styles.item}>
+                <RowLimitNumber data={list} rowNum={7} styleObj={styles.item}>
                     {item => {
                         return (
                             <View style={[styles.item, styles.borderItem]}>
@@ -23,7 +23,7 @@ export default class home extends Component {
                             </View>
                         );
                     }}
-                </RwoLimitNum>
+                </RowLimitNumber>
             </View>
         );
     }
