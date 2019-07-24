@@ -7,7 +7,7 @@ import store from './mobx';
 const AppContainer = createAppContainer(AppNavigator);
 
 export default () => (
-  <Provider rootStore={store}>
+  <Provider Store={store}>
     <AppContainer />
   </Provider>
 );

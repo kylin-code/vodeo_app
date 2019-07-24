@@ -10,20 +10,20 @@ import RowlimitNumberLsit from '../../components/RowLimitNumberList';
 //   list.push({ id: i, text: `text${i}`, name: `watt${i}` });
 // });
 
-@inject('rootStore')
+@inject('Store')
 @observer
 export default class home extends Component {
   constructor(props) {
     super(props);
-    const { rootStore } = props;
+    const { Store } = props;
     this.state = {};
-    this.rootStore = rootStore;
+    this.Store = Store;
     this.addNum = this.addNum.bind(this);
   }
 
   @action
   addNum() {
-    this.rootStore.UserInfo.addNum();
+    this.Store.User.addNum();
   }
 
   render() {
@@ -47,7 +47,7 @@ export default class home extends Component {
         <TouchableOpacity onPress={this.addNum}>
           <Text>点击</Text>
         </TouchableOpacity>
-        <Text>{this.rootStore.UserInfo.userMoney}</Text>
+        <Text>{this.Store.User.userMoney}</Text>
         {/* <RowLimitNumber data={list} rowNum={7} styleObj={styles.item}>
           {item => {
             return (

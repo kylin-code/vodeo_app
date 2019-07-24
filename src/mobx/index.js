@@ -1,16 +1,14 @@
-import UserInfo from './UserInfo';
+import User from './user';
 
 /**
- * 根store
- * @class RootStore
- * CartStore 为购物车页面的数据
- * UserInfo 为用户数据
+ * @class Store
+ * User 为用户数据
  */
-class RootStore {
+class Store {
   constructor() {
-    this.UserInfo = new UserInfo(this);
+    this.User = new User(this);
   }
 }
 
 // 返回RootStore实例
-export default new RootStore();
+export default new Store();
