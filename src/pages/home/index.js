@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { inject, observer } from 'mobx-react';
+import { action } from 'mobx';
 import RowLimitNumber from '../../components/RowLimitNumber';
 import RowlimitNumberLsit from '../../components/RowLimitNumberList';
 
-let list = [];
-[...Array(99)].forEach((item, i) => {
-  list.push({ id: i, text: `text${i}`, name: `watt${i}` });
-});
+// let list = [];
+// [...Array(99)].forEach((item, i) => {
+//   list.push({ id: i, text: `text${i}`, name: `watt${i}` });
+// });
 
+@inject('rootStore')
+@observer
 export default class home extends Component {
+  constructor(props) {
+    super(props);
+    const { rootStore } = props;
+    this.state = {};
+    this.rootStore = rootStore;
+    this.addNum = this.addNum.bind(this);
+  }
+
+  @action
+  addNum() {
+    this.rootStore.UserInfo.addNum();
+  }
+
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <RowlimitNumberLsit
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        {/* <RowlimitNumberLsit
           data={list}
           rowNum={7}
           styleObj={[styles.item, styles.borderItem]}
@@ -26,7 +43,11 @@ export default class home extends Component {
               </View>
             );
           }}
-        </RowlimitNumberLsit>
+        </RowlimitNumberLsit> */}
+        <TouchableOpacity onPress={this.addNum}>
+          <Text>点击</Text>
+        </TouchableOpacity>
+        <Text>{this.rootStore.UserInfo.userMoney}</Text>
         {/* <RowLimitNumber data={list} rowNum={7} styleObj={styles.item}>
           {item => {
             return (
