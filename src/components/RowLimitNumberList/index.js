@@ -46,9 +46,8 @@ export default class RowLimitNumberList extends PureComponent {
 
   render() {
     const list = this.setList();
-    console.log(list);
     return (
-      <View>
+      <View style={{ flex: 1, width: '100%' }}>
         <FlatList data={list} renderItem={this.renderItem} />
       </View>
     );
