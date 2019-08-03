@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { inject, observer } from 'mobx-react';
-import { computed } from 'mobx';
 
 @inject('Store')
 @observer
