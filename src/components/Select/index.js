@@ -13,26 +13,27 @@ export default class Select extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            show: false, language: ''
+            show: false,
+            language: ''
         }
-    }
-    _onPressButton = () => {
-        this.setState({ show: !this.state.show })
     }
 
     render() {
         const { show, language } = this.state
-        const height = array.length > 5 ? 5 * 32 : array.length * 32;
+        const { ShowStyle, SelectStyle, itemStyle } = this.props;
+        const itemHeight = itemStyle ? itemStyle.height : 32;
+        const height = array.length > 4 ? 4 * itemHeight : array.length * itemHeight;
+        const top = ShowStyle ? ShowStyle.height : 32;
         return (
             <View style={Styles.main}>
-                <TouchableOpacity style={[Styles.content]} onPress={() => this.setState({ show: true })}>
+                <TouchableOpacity style={[Styles.content, ShowStyle]} onPress={() => this.setState({ show: true })}>
                     <Text style={{ paddingHorizontal: 8 }}>{language}</Text>
                 </TouchableOpacity>
                 {show && <FlatList
-                    style={[Styles.list, { height: height }]}
+                    style={[Styles.list, { height: height, top: top }, SelectStyle]}
                     data={array}
                     renderItem={({ item }) => {
-                        return <TouchableOpacity style={Styles.itemStyle} onPress={() => this.setState({ show: false, language: item.name })}>
+                        return <TouchableOpacity style={[Styles.itemStyle, itemStyle]} onPress={() => this.setState({ show: false, language: item.name })}>
                             <Text>{item.name}</Text>
                         </TouchableOpacity>
                     }}
@@ -75,7 +76,6 @@ const Styles = StyleSheet.create({
     },
     list: {
         position: 'absolute',
-        top: 32,
         zIndex: 111111,
         borderWidth: 1,
         width: '100%',

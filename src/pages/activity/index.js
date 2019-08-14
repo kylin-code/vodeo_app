@@ -17,7 +17,7 @@ export default class Activity extends Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text> Activity{this.props.Store.User.userMoney} </Text>
         <View style={{ width: 100, marginTop: 200 }}>
-          <Select />
+          <Select ShowStyle={{ height: 38 }} itemStyle={{ height: 40 }} SelectStyle={{ backgroundColor: 'red' }} />
         </View>
       </View>
     );
